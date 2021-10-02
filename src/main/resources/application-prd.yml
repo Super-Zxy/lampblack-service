@@ -1,0 +1,203 @@
+profiles: prd
+server:
+  servlet:
+    context-path: /lampblack
+  port: 9090
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      accountingDB11:
+        name: accountingDB11
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb11.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb12.boss.js.cmcc)(PORT = 1521))        )(CONNECT_DATA =(SERVICE_NAME = jzdb1)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: accounting
+        password:
+        tns: njzdb11
+        # 下面为连接池的补充设置，应用到上面所有数据源中
+        # 初始化大小，最小，最大
+        initial-size: 5
+        min-idle: 5
+        max-active: 20
+        # 配置获取连接等待超时的时间
+        max-wait: 60000
+        # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+        time-between-eviction-runs-millis: 60000
+        # 配置一个连接在池中最小生存的时间，单位是毫秒
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1 FROM DUAL
+        validation-query-timeout: 10000
+        test-While-Idle: true
+        test-on-borrow: false
+        test-on-return: false
+        # 打开PSCache，并且指定每个连接上PSCache的大小
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        # 合并多个DruidDataSource的监控数据
+        use-global-data-source-stat: true
+
+      accountingDB12:
+        name: accountingDB12
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb12.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb11.boss.js.cmcc)(PORT = 1521))        )(CONNECT_DATA =(SERVICE_NAME = jzdb1)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: accounting
+        password:
+        tns: njzdb12
+
+      accountingDB21:
+        name: accountingDB21
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb21.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb22.boss.js.cmcc)(PORT = 1521))        )(CONNECT_DATA =(SERVICE_NAME = jzdb2)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: accounting
+        password:
+        tns: njzdb21
+
+      accountingDB22:
+        name: accountingDB22
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb22.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb21.boss.js.cmcc)(PORT = 1521))        )(CONNECT_DATA =(SERVICE_NAME = jzdb2)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: accounting
+        password:
+        tns: njzdb22
+
+      accountingDB31:
+        name: accountingDB31
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb31.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb32.boss.js.cmcc)(PORT = 1521))        )(CONNECT_DATA =(SERVICE_NAME = jzdb3)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: accounting
+        password:
+        tns: njzdb31
+
+      accountingDB32:
+        name: accountingDB32
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb32.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb31.boss.js.cmcc)(PORT = 1521))        )(CONNECT_DATA =(SERVICE_NAME = jzdb3)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: accounting
+        password:
+        tns: njzdb32
+
+      accountingDB41:
+        name: accountingDB41
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb41.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb42.boss.js.cmcc)(PORT = 1521))        )(CONNECT_DATA =(SERVICE_NAME = jzdb4)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: accounting
+        password:
+        tns: njzdb41
+
+      accountingDB42:
+        name: accountingDB41
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb42.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = njzdb41.boss.js.cmcc)(PORT = 1521))        )(CONNECT_DATA =(SERVICE_NAME = jzdb4)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: accounting
+        password:
+        tns: njzdb42
+
+      billDB11:
+        name: billDB11
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb13.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb14.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb11.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb12.boss.js.cmcc)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = zddb1)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: bill
+        password:
+        tns: nzddb11
+
+      billDB12:
+        name: billDB12
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb14.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb13.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb12.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb11.boss.js.cmcc)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = zddb1)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: bill
+        password:
+        tns: nzddb12
+
+      billDB21:
+        name: billDB21
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb21.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb22.boss.js.cmcc)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = zddb2)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: bill
+        password:
+        tns: nzddb21
+
+      billDB22:
+        name: billDB22
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb22.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb21.boss.js.cmcc)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = zddb2)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: bill
+        password:
+        tns: nzddb22
+
+      billDB31:
+        name: billDB31
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb31.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb32.boss.js.cmcc)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = zddb3)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: bill
+        password:
+        tns: nzddb31
+
+      billDB32:
+        name: billDB32
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb32.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb31.boss.js.cmcc)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = zddb3)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: bill
+        password:
+        tns: nzddb32
+
+      billDB41:
+        name: billDB41
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb41.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb42.boss.js.cmcc)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = zddb4)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: bill
+        password:
+        tns: nzddb41
+
+      billDB42:
+        name: billDB42
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION =(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb42.boss.js.cmcc)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = nzddb41.boss.js.cmcc)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = zddb4)(SERVER=DEDICATED)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=basic))))
+        username: bill
+        password:
+        tns: nzddb42
+
+      refundDB11:
+        name: refundDB11
+        driver-class-name: com.alipay.oceanbase.jdbc.Driver
+        url: jdbc:oceanbase://10.32.52.15:2883/refund?useUnicode=true&characterEncoding=utf-8
+        username: refund@refund#bossrefund
+        password: refund
+        tns: refundOB1
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+#  redis:
+#    cluster:
+#      nodes: 10.32.44.91:40113,10.32.44.73:40113,10.32.44.63:40113
+#    password: tuifei#2021
+#    database: 0
+#    jedis:
+#      pool:
+#        max-active: 20 # 连接池最大连接数（使用负值表示没有限制）
+#        max-wait: -1 # 连接池分配连接最大阻塞等待时间（阻塞时间到，抛出异常。使用负值表示无限期阻塞）
+#        max-idle: 8 # 连接池中的最大空闲连接数
+#        min-idle: 4 # 连接池中的最小空闲连接数
+#      timeout: 3000
+
+
+logging:
+  path: /opt/apps/log/
+
+uploadPath: /opt/uploadFile/
+
+securityFilter:
+  rediectErrorUrl:
+
+# Socket配置
+socket:
+  # 监听端口 8068
+  port: 8068
+  # 线程池 - 保持线程数 20
+  pool-keep: 20
+  # 线程池 - 核心线程数 10
+  pool-core: 10
+  # 线程池 - 最大线程数 20
+  pool-max: 20
+  # 线程队列容量 10
+  pool-queue-init: 10
