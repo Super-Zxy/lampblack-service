@@ -82,9 +82,9 @@ spring:
 #    store-type: redis
 
 logging:
-  path: c:\bosslog
+  path: log
 
-uploadPath: d:\
+uploadPath: /opt/upload
 
 securityFilter:
   rediectErrorUrl:

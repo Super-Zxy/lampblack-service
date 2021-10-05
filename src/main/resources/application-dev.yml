@@ -93,7 +93,7 @@ securityFilter:
 socket:
   # 监听端口 8068
   port: 8068
-  # 线程池 - 保持线程数 20
+  # 线程池 - 保持时间 20秒
   pool-keep: 20
   # 线程池 - 核心线程数 10
   pool-core: 10

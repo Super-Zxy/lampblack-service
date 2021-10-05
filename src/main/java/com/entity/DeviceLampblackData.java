@@ -9,6 +9,10 @@ import lombok.Data;
  */
 @Data
 public class DeviceLampblackData {
+    //创建时间
+    private String createTime;
+    //客户机IP
+    private String remoteSocketAddress;
     //检测单位号
     private String mn;
     //数据时间

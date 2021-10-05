@@ -49,6 +49,8 @@ public class DeviceHandlerThread implements Runnable {
             //解析油烟监控设备数据
             DeviceLampblackData deviceLampblackData = new DeviceLampblackData();
 
+            deviceLampblackData.setRemoteSocketAddress(String.valueOf(socket.getRemoteSocketAddress()));
+
             //根据;分隔所有参数，与LampBlackMap匹配获取参数值
             DeviceHandlerThread.findDeviceValueBySplit(deviceLampblackData, clientInputStr);
 
