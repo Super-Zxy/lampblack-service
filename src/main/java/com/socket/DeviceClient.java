@@ -9,10 +9,10 @@ import java.net.Socket;
  * @description
  */
 public class DeviceClient {
-//    public static final String IP_ADDR = "localhost";//服务器地址
+    public static final String IP_ADDR = "localhost";//服务器地址
     public static final int PORT = 8068;//服务器端口号
 
-    public static final String IP_ADDR = "121.37.178.53";//服务器地址
+//    public static final String IP_ADDR = "121.37.178.53";//服务器地址
 //    public static final String IP_ADDR = "4409s41e56.qicp.vip";//服务器地址
 //    public static final int PORT = 23137;//服务器端口号
 
